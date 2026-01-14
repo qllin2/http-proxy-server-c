@@ -1,0 +1,45 @@
+# Build artifacts
+htproxy
+*.o
+*.out
+*.obj
+*.a
+*.so
+*.dll
+*.dylib
+
+# Dependency / build system
+*.d
+*.cmd
+*.dep
+
+# Logs and runtime files
+*.log
+*.pid
+*.pid.lock
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+._*
+
+# IDE / editor configs
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Backup / temp files
+*~
+*.swp
+*.swo
+*.tmp
+
+# cURL test outputs or captured responses
+curl-output*
+
+# Docker
+*.tar
+
