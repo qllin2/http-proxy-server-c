@@ -1,4 +1,4 @@
-# Zero-Dependency Bare-Metal HTTP Proxy
+# HTTP Caching Proxy Service
 ![Language](https://img.shields.io/badge/language-C99-blue.svg)
 ![Platform](https://img.shields.io/badge/platform-Linux%20%7C%20Docker-orange.svg)
 ![Build](https://img.shields.io/badge/build-passing-brightgreen.svg)
