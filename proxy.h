@@ -16,6 +16,8 @@
 #include <stdarg.h>
 #include <time.h>
 #include <stdint.h>
+#include <signal.h>
+#include <pthread.h>
 
 #define BACKLOG 10
 #define MAX_REQUEST_HEADERS_SIZE 8192 // Max size for all request headers from client
@@ -28,6 +30,7 @@
 #define MAX_CACHE_ENTRIES 10
 #define MAX_CACHE_KEY_SIZE 2000
 #define MAX_CACHE_VALUE_SIZE (100 * 1024) // 100KB
+#define CACHE_HASH_BUCKETS 256
 
 typedef struct CacheEntry {
     char *request_key;
@@ -41,11 +44,15 @@ typedef struct CacheEntry {
 
     struct CacheEntry *prev;
     struct CacheEntry *next;
+    struct CacheEntry *hash_next;
 } CacheEntry;
 
 typedef struct LRUCache {
     CacheEntry *head;
     CacheEntry *tail;
+    CacheEntry **buckets;
+    size_t bucket_count;
+    pthread_rwlock_t lock;
     int count;
     int capacity;
 } LRUCache;

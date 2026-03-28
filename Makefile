@@ -1,7 +1,7 @@
 EXE=htproxy
 
 $(EXE): main.c proxy.h
-	cc -Wall -o $@ $<
+	cc -Wall -pthread -o $@ $<
 
 format:
 	clang-format -style=file -i *.c
