@@ -29,7 +29,7 @@ This project demonstrates low-level systems programming with **BSD sockets**, **
 ```mermaid
 graph TD
     Client[Client / Browser] -->|HTTP Request| Proxy[HTTP Proxy Server]
-    Proxy -->|accept()| Queue[(Work Queue)]
+    Proxy -->|"accept()"| Queue[(Work Queue)]
     Queue -->|dispatch| Workers[Worker Pool (pthreads)]
     Workers -->|Lookup Key| Cache{LRU Cache (Hash+DLL)}
     
